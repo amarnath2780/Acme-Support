@@ -17,15 +17,65 @@ export const AuthProvider=({children})=>{
 
     const navigate=useNavigate()
 
+    const [message, setmessage] = useState('');
+
     const Userlogin = async(email,password)=>{
 
         await axios.post('user/login/' , {email:email,password:password}).then((res)=>{
             console.log(res.data);
+            if (res.data.token){
+                if (res.data.user.role == 'user'){
+                    localStorage.setItem('authToken',JSON.stringify(res.data))
+                    localStorage.setItem('token',JSON.stringify(res.data.token))
+                    setauthToken(res.data)
+                    setUser(res.data.token)
+                    localStorage.setItem('userId',JSON.stringify(res.data.user.user_id))
+                    navigate('/')
+                }
+                else if(res.data.user.role == 'admin'){
+                    localStorage.setItem('adminToken',JSON.stringify(res.data))
+                    localStorage.setItem('token',JSON.stringify(res.data.token))
+                    setAdmin(res.data)
+                    setadminToken(res.data.token)                      
+                    localStorage.setItem('userId',JSON.stringify(res.data.user.user_id))
+                    navigate('/admin')
+                  }
+            }
+        }).catch((error)=>{
+            if (error.response) {
+                setmessage('User Name not found')
+            }
+            else if(error.request){
+                setmessage('User Name not found')
+            }
+            else{
+                setmessage('User Name not found')
+            }
+            setmessage('User Name not found')
         })
+    }
+
+    let logOut=()=>{
+        axios.post('user/logout/').then((res)=>{
+            console.log(res.data)
+        })
+        localStorage.removeItem('authToken')
+        localStorage.removeItem('token')
+        localStorage.removeItem('userId')
+        localStorage.removeItem('adminToken')
+        localStorage.removeItem('Role')
+
+        setUser(null)
+        setauthToken(null)
+        setAdmin(null)
+        setadminToken(null)
+        navigate('/login')
     }
 
     let contextData={
         Userlogin:Userlogin,
+        logOut:logOut,
+        message:message,
     }
 
     return(

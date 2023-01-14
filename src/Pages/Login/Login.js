@@ -4,7 +4,7 @@ import AuthContext from '../../Context/AuthContext';
 
 function Login() {
 
-    const {Userlogin} = useContext(AuthContext);
+    const {Userlogin,message} = useContext(AuthContext);
 
     const [email, setemail] = useState('');
     const [password, setpassword] = useState('');
@@ -18,6 +18,7 @@ function Login() {
   return (
     <div className='LoginPage'>
       <form onSubmit={handleLogin} action="">
+        {message? <h1>{message}</h1> :''}
         <label htmlFor="">Email</label>
         <input type="email" name="email" id='email' 
         onChange={(e)=>{
