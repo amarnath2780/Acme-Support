@@ -4,6 +4,8 @@ import { AuthProvider } from './Context/AuthContext';
 import Login from './Pages/Login/Login';
 import AdminHome from './Pages/AdminHome';
 import Home from './Pages/Home';
+import PrivateRoutes from './Routes/PrivateRoutes';
+import AdminPrivateRoutes from './Routes/AdminPrivateRoutes';
 
 function App() {
   return (
@@ -11,9 +13,17 @@ function App() {
       <Router>
         <AuthProvider>
           <Routes>
+
+            <Route element={<PrivateRoutes/>}>
+              <Route path='/' element={<Home/>}/>
+            </Route>
+
+            <Route element={<AdminPrivateRoutes/>}>
+              <Route path='/admin' element={<AdminHome/>}/>
+            </Route>
+
             <Route path='/login' element={<Login/>}/>
-            <Route path='/' element={<Home/>}/>
-            <Route path='/admin' element={<AdminHome/>}/>
+
           </Routes>
         </AuthProvider>
       </Router>

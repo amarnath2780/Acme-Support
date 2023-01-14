@@ -12,8 +12,8 @@ export const AuthProvider=({children})=>{
     let [authToken, setauthToken] = useState(()=>localStorage.getItem('authToken')? JSON.parse(localStorage.getItem('authToken')):null);
     let [user,setUser]=useState(()=>localStorage.getItem('authToken')? jwt_decode(localStorage.getItem('authToken')):null)
 
-    let [admin,setAdmin]=useState(()=>localStorage.getItem('adminToken')? jwt_decode(localStorage.getItem('admin')):null)
-    let [adminToken,setadminToken]=useState(()=>localStorage.getItem('adminToken')? JSON.parse(localStorage.getItem('admin')):null)
+    let [admin,setAdmin]=useState(()=>localStorage.getItem('adminToken')? jwt_decode(localStorage.getItem('adminToken')):null)
+    let [adminToken,setadminToken]=useState(()=>localStorage.getItem('adminToken')? JSON.parse(localStorage.getItem('adminToken')):null)
 
     const navigate=useNavigate()
 
@@ -76,6 +76,10 @@ export const AuthProvider=({children})=>{
         Userlogin:Userlogin,
         logOut:logOut,
         message:message,
+        admin:admin,
+        authToken:authToken,
+        user:user,
+        adminToken:adminToken,
     }
 
     return(
