@@ -17,5 +17,36 @@
     flex-direction: column;
     padding-bottom: 20px;
 }
+.viewTicket .Layout__layout1 .TicketDetailLeftContainer__wrapper .TicketDetailLeftContainer__boxView .title{
+    display: flex;
+    justify-content: space-between;
+} 
 
+.viewTicket .Layout__layout1 .TicketDetailLeftContainer__wrapper .TicketDetailLeftContainer__boxView .title h3{
+    font-size: 25px;
+    font-family: system-ui;
+    font-weight: 400;
+}
 
+#success{
+    font-size: 19px;
+    margin: 0px 20px;
+    color: #04b702;
+}
+
+#closed{
+    font-size: 19px;
+    margin: 0px 20px;
+    color: #e60707;
+}
+
+#pending{
+    font-size: 19px;
+    margin: 0px 20px;
+    color: #0781b5;
+}
+
+#important{
+    font-weight: 700;
+    font-family: sans-serif;
+}
