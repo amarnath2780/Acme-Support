@@ -14,6 +14,8 @@ import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import { useNavigate } from 'react-router-dom';
+import Box from '@mui/material/Box';
+import LinearProgress from '@mui/material/LinearProgress';
 
 function PaperComponent(props) {
   return (
@@ -53,6 +55,8 @@ export default function AdminModelDialog() {
 
   const navigate = useNavigate()
 
+  const [loading, setLoading] = useState(false);
+
   React.useEffect(() => {
       Department()
       UserDetails()
@@ -90,6 +94,8 @@ export default function AdminModelDialog() {
 
   const handleSubmit=(e)=>{
     e.preventDefault()
+    setLoading(true)
+
     axios.post('/create-ticket/', {
       department:department,
       subject: subject,
@@ -102,6 +108,7 @@ export default function AdminModelDialog() {
     }).then((res)=>{
       navigate('/admin')
       setOpen(false)
+      setLoading(false)
     }).catch((error)=>{
       if (error.response) {
         seterror('Please enter valid data')
@@ -196,6 +203,10 @@ export default function AdminModelDialog() {
                                 <div className="signin_button">
                                   <button class="btn"  type="submit">Create a Ticket</button>
                                 </div>
+                                {loading?
+                                <Box sx={{ width: '100%' }}>
+                                    <LinearProgress />
+                                </Box>:''}
                               </form> 
                             </div>
                           </div>

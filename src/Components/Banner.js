@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import AuthContext from '../Context/AuthContext';
 import AdminModelDialog from './Dialog/AdminModelDialog';
+import CreateUser from './Dialog/CreateUser';
 import ModalDialog from './Dialog/ModalDialog';
 import NavbarBanner from './NavbarBanner'
 
@@ -17,7 +18,7 @@ function Banner() {
         <div className="Header__titleSearchBox">
             {authToken ? <ModalDialog/>  : adminToken ? <>
             <AdminModelDialog/>
-            <button>Create User</button>
+            <CreateUser/>
             </> : ''}
         </div>
       </div>
