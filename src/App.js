@@ -6,6 +6,7 @@ import AdminHome from './Pages/AdminHome';
 import Home from './Pages/Home';
 import PrivateRoutes from './Routes/PrivateRoutes';
 import AdminPrivateRoutes from './Routes/AdminPrivateRoutes';
+import SignUp from './Pages/Login/SignUp';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             </Route>
 
             <Route path='/login' element={<Login/>}/>
+            <Route path='/signup' element={<SignUp/>}/>
 
           </Routes>
         </AuthProvider>

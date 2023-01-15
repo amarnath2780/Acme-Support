@@ -122,7 +122,7 @@ function NavbarBanner() {
       
           {adminToken ? '' : authToken ? '':<Button
                 onClick={()=>{
-                  navigate('/signup')
+                  navigate('/login')
                 }}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
