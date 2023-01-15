@@ -30,7 +30,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export default function ModalDialog() {
+export default function AdminModelDialog() {
 
   const userId = localStorage.getItem('userId')
   const [open, setOpen] = React.useState(false);
@@ -38,6 +38,7 @@ export default function ModalDialog() {
 
   // All Department
   const [allDepart, setAllDepart] = React.useState('');
+  const [users, setUsers] = useState([]);
 
   const [department, setDepartment] = React.useState('');
   const [subject, setSubject] = useState('');
@@ -55,6 +56,7 @@ export default function ModalDialog() {
   React.useEffect(() => {
       Department()
       UserDetails()
+      AllUsers()
   }, []);
 
   const handleClickOpen = () => {
@@ -80,6 +82,12 @@ export default function ModalDialog() {
     })
   }
 
+  const AllUsers=()=>{
+    axios.get('all-users').then((res)=>{
+        setUsers(res.data.results)
+    })
+  }
+
   const handleSubmit=(e)=>{
     e.preventDefault()
     axios.post('/create-ticket/', {
@@ -92,7 +100,7 @@ export default function ModalDialog() {
       priority : priority,
       status : status,
     }).then((res)=>{
-      navigate('/')
+      navigate('/admin')
       setOpen(false)
     }).catch((error)=>{
       if (error.response) {
@@ -149,15 +157,19 @@ export default function ModalDialog() {
                                         setName(e.target.value)
                                 }}/>
 
-                                <input type="email" placeholder={email} name="email" id='email' 
-                                    onChange={(e)=>{
-                                        setEmail(e.target.value)
-                                }}/>
-                                                
-                                <input type="text" placeholder={phone} name="phone" id='phone' 
-                                    onChange={(e)=>{
-                                        setPhone(e.target.value)
-                                }}/>
+                                <select name="" id="" placeholder='Email' onChange={(e)=>setEmail(e.target.value)}>
+                                    <option value='1'>Email</option>
+                                            {users ? users.map((item,key)=>
+                                            <option value={item.email}>{item.email}</option>
+                                            ):''}
+                                </select>
+
+                                <select name="" id="" placeholder='phone' onChange={(e)=>setPhone(e.target.value)}>
+                                    <option value='1'>Phone</option>
+                                            {users ? users.map((item,key)=>
+                                            <option value={item.phone}>{item.phone_number}</option>
+                                            ):''}
+                                </select>
 
                                 <select name="" id="" placeholder='Department' onChange={(e)=>setDepartment(e.target.value)}>
                                     <option value='1'>Department</option>
