@@ -3,7 +3,6 @@ import './Login.css'
 import AuthContext from '../../Context/AuthContext';
 import NavbarBanner from '../../Components/NavbarBanner';
 import Banner from '../../Components/Banner';
-import SnackBar from '../../Components/Snackbar/SnackBar';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';

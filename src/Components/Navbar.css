@@ -13,14 +13,22 @@
     display: flex;
     justify-content: center;
     margin-top: 50px;
+    gap: 20px;
 }
 
 .Header__titleSearchBox button{
-    width: 121px;
+    padding: 11px;
     height: 35px;
     border-radius: 10px;
     border: none;
     font-size: 18px;
     font-weight: 700;
     color: #a3a3a3;
+    display: flex;
+    align-items: center;
 }   
+
+.Header__titleSearchBox button:hover{
+    color: #000;
+    background-color: #fff;
+}

@@ -14,8 +14,9 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import './Navbar.css'
 import AuthContext from '../Context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
-const pages = ['My Area'];
+const pages = [];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function NavbarBanner() {
@@ -38,6 +39,8 @@ function NavbarBanner() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const navigate = useNavigate()
 
   return (
     <AppBar style={{boxShadow:'none', background:"transparent"}} position="static">
@@ -116,27 +119,48 @@ function NavbarBanner() {
             VegaOps Support
           </Typography>
           <Box style={{flexDirection: 'row-reverse'}} sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            <Button
+      
+          {adminToken ? '' : authToken ? '':<Button
+                onClick={()=>{
+                  navigate('/signup')
+                }}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Log In
+            </Button>}
+            {adminToken ? <Button
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {adminToken ? '' : authToken ? '': 'Log In'}
-            </Button>
-            <Button
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {adminToken ? 'Logout': authToken ? 'Logout' : 'Sign Up'}
-            </Button>
-            {pages.map((page) => (
+                Logout
+            </Button> : authToken ?
               <Button
-                key={page}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+                    >
+                      Logout
+              </Button>
+              : 
+              <Button
+              onClick={()=>{
+                navigate('/signup')
+              }}
+              sx={{ my: 2, color: 'white', display: 'block' }}
+                  >
+                    Sign Up
+            </Button>}
+            {adminToken ?<Button
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
-              </Button>
-            ))}
+                My Area
+            </Button>: authToken ? 
+            <Button
+            onClick={handleCloseNavMenu}
+            sx={{ my: 2, color: 'white', display: 'block' }}
+            >
+              My area 
+            </Button>: ''}
           </Box>
         </Toolbar>
       </Container>
