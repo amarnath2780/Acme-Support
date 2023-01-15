@@ -150,7 +150,9 @@ function NavbarBanner() {
                     Sign Up
             </Button>}
             {adminToken ?<Button
-                onClick={handleCloseNavMenu}
+                onClick={()=>{
+                  navigate('/')
+                }}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 My Area

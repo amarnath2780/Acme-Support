@@ -50,6 +50,23 @@
     padding: 4px 15px;
 }   
 
+.LoginPage .login-section .Signin__details .Signin__part .Signin_section .Signin_form form select{
+    height: 30px;
+    border: #d8d8d8 solid 1px;
+    border-radius: 8px;
+    color: #939393;
+    padding: 4px 15px;
+}
+
+.LoginPage .login-section .Signin__details .Signin__part .Signin_section .Signin_form form textarea{
+    height: 30px;
+    border: #d8d8d8 solid 1px;
+    border-radius: 8px;
+    color: #939393;
+    padding: 4px 15px;
+    min-height: 100px ;
+}
+
 .LoginPage .login-section .Signin__details .Signin__part .Signin_section .Signin_form form .signin_button{
     display: flex;
     justify-content: end;
