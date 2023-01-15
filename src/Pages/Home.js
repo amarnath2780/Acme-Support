@@ -1,11 +1,14 @@
 import React from 'react'
 import Banner from '../Components/Banner'
+import ViewTicket from '../Components/Ticket/ViewTicket'
 
 function Home() {
   return (
     <div>
       <Banner/>
-      <h1>Home page</h1>
+      <ViewTicket/>
+      <ViewTicket/>
+      <ViewTicket/>
     </div>
   )
 }

@@ -1,0 +1,21 @@
+.viewTicket .Layout__layout1{
+    border: 1px solid #d9d7d7;
+    margin: 30px 16%;
+}
+
+.viewTicket .Layout__layout1 .TicketDetailLeftContainer__wrapper{
+    display: flex;
+    justify-content: center;
+}
+.viewTicket .Layout__layout1 .TicketDetailLeftContainer__wrapper .TicketDetailLeftContainer__boxView .TicketThreadContainer__threadCont .contact{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.viewTicket .Layout__layout1 .TicketDetailLeftContainer__wrapper .TicketDetailLeftContainer__boxView .TicketThreadContainer__threadCont {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+
+
