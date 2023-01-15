@@ -1,0 +1,26 @@
+.banner{
+    background-image: linear-gradient(to bottom, rgba(7, 81, 123, 0.9), rgba(7, 81, 123, 0.9)), url(https://static.zohocdn.com/helpcenter/classic/images/home1_bg.9422a1d18ffcbfb28e11.jpg) ;
+    background-position: 100% 45%;
+    height: 215px;
+}
+
+.css-hip9hq-MuiPaper-root-MuiAppBar-root{
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.Header__titleSearchBox{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.Header__titleSearchBox button{
+    width: 121px;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+    font-weight: 700;
+    color: #a3a3a3;
+}   

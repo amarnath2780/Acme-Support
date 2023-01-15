@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react'
 import './Login.css'
 import AuthContext from '../../Context/AuthContext';
+import NavbarBanner from '../../Components/NavbarBanner';
+import Banner from '../../Components/Banner';
 
 function Login() {
 
@@ -8,7 +10,7 @@ function Login() {
 
     const [email, setemail] = useState('');
     const [password, setpassword] = useState('');
-
+ 
     const handleLogin=(e)=>{
         e.preventDefault() 
         Userlogin(email,password)  
@@ -17,7 +19,8 @@ function Login() {
 
   return (
     <div className='LoginPage'>
-      <form onSubmit={handleLogin} action="">
+      <Banner/>
+      <form onSubmit={handleLogin} >
         {message? <h1>{message}</h1> :''}
         <label htmlFor="">Email</label>
         <input type="email" name="email" id='email' 
