@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Banner from '../Components/Banner'
+import ViewTicket from '../Components/Ticket/ViewTicket'
+import axios from '../axios';
 
 function AdminHome() {
+  const [tickets, setTickets] = useState([]);
+
+  useEffect(() => {
+    TicketView()
+  }, []);
+
+  const TicketView = () =>{
+    axios.get('/all-tickets/').then((res)=>{
+      setTickets(res.data.results)
+    })
+  }
   return (
     <div>
       <Banner/>
-      <h1>Admin Home</h1>
+      {tickets? tickets.map((item,ket)=>
+      <ViewTicket item={item}/>
+      ) : ''}
     </div>
   )
 }
