@@ -2,5 +2,64 @@
     display: flex;
     flex-direction: column;
     width: 300px;
-    gap:2px;
+    gap: 32px;
+}
+
+
+.LoginPage{
+    background: #f2f2f2;
+    min-height: 100vh;
+}
+
+.LoginPage .Signin__part{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.LoginPage .login-section .Signin__details .Signin__part .Signin_section{
+    padding: 47px;
+    background: #fff;
+    margin: 66px 0px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #d1cece;
+    gap: 30px;
+    border-radius: 5px;
+}
+
+.LoginPage .login-section .Signin__details .Signin__part .Signin_section .Signin__title h5{
+    margin: 20px 0px;
+    font-size: 20px;
+    font-family: sans-serif;
+    font-weight: 500;
+}
+
+.LoginPage .login-section .Signin__details .Signin__part .Signin_section .Signin__title span{
+    font-size: 14px;
+    color: #706d6d;
+    font-family: initial;
+    font-weight: 500;
+}
+
+.LoginPage .login-section .Signin__details .Signin__part .Signin_section .Signin_form form input{
+    height: 30px;
+    border: #d8d8d8 solid 1px;
+    border-radius: 8px;
+    color: #939393;
+    padding: 4px 15px;
+}   
+
+.LoginPage .login-section .Signin__details .Signin__part .Signin_section .Signin_form form .signin_button{
+    display: flex;
+    justify-content: end;
+}   
+
+.LoginPage .login-section .Signin__details .Signin__part .Signin_section .Signin_form form .signin_button button{
+    width: 6rem;
+    padding: 8px;
+    border: none;
+    border-radius: 6px;
+    background: #3b3b3b;
+    color: #fff;
 }
