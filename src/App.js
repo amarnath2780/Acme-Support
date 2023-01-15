@@ -7,6 +7,7 @@ import Home from './Pages/Home';
 import PrivateRoutes from './Routes/PrivateRoutes';
 import AdminPrivateRoutes from './Routes/AdminPrivateRoutes';
 import SignUp from './Pages/Login/SignUp';
+import AdminViewUsers from './Pages/AdminViewUsers';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
 
             <Route element={<AdminPrivateRoutes/>}>
               <Route path='/admin' element={<AdminHome/>}/>
+              <Route path='/users' element={<AdminViewUsers/>}/>
             </Route>
 
             <Route path='/login' element={<Login/>}/>

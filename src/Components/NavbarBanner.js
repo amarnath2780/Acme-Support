@@ -151,7 +151,7 @@ function NavbarBanner() {
             </Button>}
             {adminToken ?<Button
                 onClick={()=>{
-                  navigate('/')
+                  navigate('/admin')
                 }}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
@@ -163,6 +163,15 @@ function NavbarBanner() {
             >
               My area 
             </Button>: ''}
+            {adminToken?
+            <Button
+            onClick={()=>{
+              navigate('/users')
+            }}
+            sx={{ my: 2, color: 'white', display: 'block' }}
+            >
+             All Users
+            </Button>:''}
           </Box>
         </Toolbar>
       </Container>
