@@ -21,6 +21,8 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function NavbarBanner() {
 
+  const {logOut} = React.useContext(AuthContext);
+
   let {authToken,adminToken}=React.useContext(AuthContext)
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -39,6 +41,11 @@ function NavbarBanner() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+
+  const hangleLogout=()=>{
+
+  }
 
   const navigate = useNavigate()
 
@@ -129,13 +136,13 @@ function NavbarBanner() {
                 Log In
             </Button>}
             {adminToken ? <Button
-                onClick={handleCloseNavMenu}
+                onClick={logOut}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 Logout
             </Button> : authToken ?
               <Button
-                onClick={handleCloseNavMenu}
+              onClick={logOut}
                 sx={{ my: 2, color: 'white', display: 'block' }}
                     >
                       Logout
