@@ -85,6 +85,10 @@ export default function AdminModelDialog() {
       setPhone(res.data.phone_number)
     })
   }
+  function refreshPage() {
+    window.location.reload();
+  }
+  
 
   const AllUsers=()=>{
     axios.get('all-users').then((res)=>{
@@ -109,6 +113,7 @@ export default function AdminModelDialog() {
       navigate('/admin')
       setOpen(false)
       setLoading(false)
+      refreshPage()
     }).catch((error)=>{
       if (error.response) {
         seterror('Please enter valid data')

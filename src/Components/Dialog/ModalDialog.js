@@ -67,6 +67,11 @@ export default function ModalDialog() {
     setOpen(false);
   };
 
+  function refreshPage() {
+    window.location.reload();
+  }
+  
+
   const Department=()=>{
     axios.get('/all-department/').then((res)=>{
         setAllDepart(res.data.results)
@@ -92,6 +97,7 @@ export default function ModalDialog() {
       priority : priority,
       status : status,
     }).then((res)=>{
+      refreshPage()
       navigate('/')
       setOpen(false)
     }).catch((error)=>{
